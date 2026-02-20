@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #232527;
+  background: #FBF9F4;
+}
+
+/* Client logo carousel */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 20s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-left {
+    animation: scroll-left 12s linear infinite;
+  }
+  .animate-scroll-right {
+    animation: scroll-right 12s linear infinite;
+  }
+}
+
+/* FAQ accordion */
+.faq-item details[open] summary .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Pricing card hover */
+.pricing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+/* Service card hover */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+/* ───── Scroll Animations ───── */
+.scroll-anim {
+  will-change: opacity, transform;
+}
+
+/* fadeIn */
+.scroll-anim.fadeIn {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.scroll-anim.fadeIn.is-visible {
+  opacity: 1;
+}
+
+/* fadeInUp */
+.scroll-anim.fadeInUp {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-anim.fadeInUp.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* zoomIn */
+.scroll-anim.zoomIn {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-anim.zoomIn.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* pulse */
+.scroll-anim.pulse {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.scroll-anim.pulse.is-visible {
+  opacity: 1;
+  animation: pulse-anim 2s ease-in-out 0.6s 2;
+}
+
+@keyframes pulse-anim {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
