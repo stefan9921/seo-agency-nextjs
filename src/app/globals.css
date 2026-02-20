@@ -43,7 +43,7 @@ body {
 }
 
 /* FAQ accordion */
-.faq-item details[open] summary .faq-icon {
+details[open] summary .faq-icon {
   transform: rotate(45deg);
 }
 
@@ -125,4 +125,10 @@ body {
 @keyframes pulse-anim {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+/* Select dropdown styling for dark backgrounds */
+select option {
+  background: #1a1a2e;
+  color: white;
 }
